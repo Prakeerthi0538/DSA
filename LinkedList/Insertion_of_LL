@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct Node
+{
+    int data;
+    Node* next;
+    Node(int data1,Node* next1)
+    {
+        data=data1;
+        next=next1;
+    }
+    Node(int data1)
+    {
+        data = data1;
+        next = nullptr;
+    }
+};
+Node* Insert_vec(vector<int> a)
+{
+    Node* head=new Node(a[0]);
+    Node* y=head;
+    for(int i=1;i<a.size();i++)
+    {
+        Node* temp=new Node(a[i]);
+        y->next=temp;
+        y=temp;
+    }
+    return head;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int> arr;
+    for(int i=0;i<n;i++)
+    {
+        int a;
+        cin>>a;
+        arr.push_back(a);
+    }
+    Node* head=Insert_vec(arr);
+    Node*temp=head;
+    while(temp)
+    {
+        cout<<temp->data;
+        temp=temp->next;
+    }
+}
